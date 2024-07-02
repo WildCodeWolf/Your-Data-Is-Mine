@@ -13,8 +13,8 @@ un-boosted f1 score:    0.784423
 
 Switched to $F_\beta$ Score ($\beta = 10$).<br/>
 Original $F_\beta$ score:  0.746755<br/>
-Best     $F_\beta$ score:  ???<br/>
-Best            accuracy:  ???
+Best     $F_\beta$ score:  0.796505<br/>
+Best            accuracy:  0.999366
 
 ---
 
