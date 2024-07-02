@@ -15,4 +15,4 @@ Can accuracy or f1 be increased by removing any of those from the models' traini
 
 # Owner
 
-Dustin
+Nilgün
