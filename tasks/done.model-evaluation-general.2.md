@@ -16,6 +16,15 @@ The choice needs to be backed by its impact within the context/
 narrative of the dataset and prediction.
 Each dataset can go my its individual metric.
 
+--> For the context of the detection of harmful attacks, *false negative*
+predictions can have devastating consequences while *false negative*
+predictions usually cause mere inconveniences.  Thus, the choice for
+the selected metric should be the $F_\beta$ Score (a weighted version
+of the $F1$ Score) with emphasis on Recall ($\beta > 1$) as it punishes
+*false negatives* more severely.
+
 ---
 
 # Owner
+
+Dustin
