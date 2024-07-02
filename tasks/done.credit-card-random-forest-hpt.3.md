@@ -7,14 +7,14 @@ dataset.
 
 # Goal
 
-Improvement of the current score(s).
-un-boosted accuracy:    0.999449
+Improvement of the current score(s).<br/>
+un-boosted accuracy:    0.999449<br/>
 un-boosted f1 score:    0.821173
 
-Switched to fbeta scores (beta=10).
-Original fbeta score:   0.760395
-Best     fbeta score:   0.770790
-Best        accuracy:   0.999440
+Switched to $F_\beta$ scores ($\beta = 10$).<br/>
+Original $F_\beta$ score:   0.760395<br/>
+Best     $F_\beta$ score:   0.770790<br/>
+Best            accuracy:   0.999440
 
 ---
 
