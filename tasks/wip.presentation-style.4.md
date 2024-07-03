@@ -13,3 +13,5 @@ for the slides and graphics (plots).
 ---
 
 # Owner
+
+Stefanie
