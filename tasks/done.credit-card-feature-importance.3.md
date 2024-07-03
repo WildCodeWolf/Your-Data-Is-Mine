@@ -18,6 +18,7 @@ All features - Accuracy: 0.9995201479348805, F1 Score: 0.8452830188679246
 Without 'Time' and 'Amount' - Accuracy: 0.9994967405170698, F1 Score: 0.8352490421455939
 Least important features: ['V23', 'V24', 'V25', 'V27', 'V28']
 Without least important features - Accuracy: 0.9995201479348805, F1 Score: 0.8452830188679246
+
 ---
 
 # Owner
