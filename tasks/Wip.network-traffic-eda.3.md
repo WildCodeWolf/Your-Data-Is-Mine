@@ -20,3 +20,4 @@ Thorough EDA covering the following aspects:
 ---
 
 # Owner
+Tanvi Goel
