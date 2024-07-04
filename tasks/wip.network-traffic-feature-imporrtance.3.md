@@ -12,20 +12,20 @@ Can accuracy or fbeta be increased by removing any of the less
 informative columns from the models' training?
 
 Attack Detection:<br/>
-model score on training data: 0.9999880397717457<br/>
-model score on testing data: 0.999755037240541<br/>
+Model score on training data: 0.9999916278446723<br/>
+Model score on testing data: 0.9266796910377664<br/>
 
 Impotant Features List in Notebook!<br/>
-All features - Accuracy: 0.999755037240541, F-beta Score (beta=10): 0.6138177369985122<br/>
-Without least important features - Accuracy: 0.9997395332684234, F-beta Score (beta=10): 0.6058304993292546<br/>
+All features - Accuracy: 0.9266796910377664, F-beta Score (beta=10): 0.9054951021766391<br/>
+Without least important features - Accuracy: 0.9262527331772133, F-beta Score (beta=10): 0.9049860816660242<br/>
 
 Attack Class Prediction:<br/>
-model score on training data: 0.999997342171499<br/>
-model score on testing data: 0.9998201539234352<br/>
+Model score on training data: 1.0<br/>
+Model score on testing data: 0.9617290499540697<br/>
 
 Impotant Features List in Notebook!<br/>
-All features - Accuracy: 0.9998201539234352<br/>
-Without least important features - Accuracy: 0.999801549156894<br/>
+All features - Accuracy: 0.9617290499540697<br/>
+Without least important features - Accuracy: 0.9657398662198704<br/>
 
 ---
 
