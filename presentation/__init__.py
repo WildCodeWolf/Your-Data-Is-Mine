@@ -78,7 +78,8 @@ class Colors():
 
 sns.set_theme(
     style='whitegrid',
-    context='paper',
+    #context='paper',
+    context=sns.plotting_context('paper', font_scale=1.2),
     palette=Colors.blues,
     #font='sans_serif',      # breaks the style for some reason!
     rc={
