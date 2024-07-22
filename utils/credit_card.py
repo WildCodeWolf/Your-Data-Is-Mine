@@ -119,62 +119,6 @@ class Col:
     """The column names (in order)."""
     time = _all_pretty[0]
     """The time column."""
-    v1 = _all_pretty[1]
-    """The V1 column."""
-    v2 = _all_pretty[2]
-    """The V2 column."""
-    v3 = _all_pretty[3]
-    """The V3 column."""
-    v4 = _all_pretty[4]
-    """The V4 column."""
-    v5 = _all_pretty[5]
-    """The V5 column."""
-    v6 = _all_pretty[6]
-    """The V6 column."""
-    v7 = _all_pretty[7]
-    """The V7 column."""
-    v8 = _all_pretty[8]
-    """The V8 column."""
-    v9 = _all_pretty[9]
-    """The V9 column."""
-    v10 = _all_pretty[10]
-    """The V10 column."""
-    v11 = _all_pretty[11]
-    """The V11 column."""
-    v12 = _all_pretty[12]
-    """The V12 column."""
-    v13 = _all_pretty[13]
-    """The V13 column."""
-    v14 = _all_pretty[14]
-    """The V14 column."""
-    v15 = _all_pretty[15]
-    """The V15 column."""
-    v16 = _all_pretty[16]
-    """The V16 column."""
-    v17 = _all_pretty[17]
-    """The V17 column."""
-    v18 = _all_pretty[18]
-    """The V18 column."""
-    v19 = _all_pretty[19]
-    """The V19 column."""
-    v20 = _all_pretty[20]
-    """The V20 column."""
-    v21 = _all_pretty[21]
-    """The V21 column."""
-    v22 = _all_pretty[22]
-    """The V22 column."""
-    v23 = _all_pretty[23]
-    """The V23 column."""
-    v24 = _all_pretty[24]
-    """The V24 column."""
-    v25 = _all_pretty[25]
-    """The V25 column."""
-    v26 = _all_pretty[26]
-    """The V26 column."""
-    v27 = _all_pretty[27]
-    """The V27 column."""
-    v28 = _all_pretty[28]
-    """The V28 column."""
     amount = _all_pretty[29]
     """The Amount column."""
     target = _all_pretty[30]
