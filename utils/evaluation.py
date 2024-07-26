@@ -51,11 +51,11 @@ def evaluate_model(model, X_test, y_true, beta=10., average='weighted', display_
     display_false_negatives_ = display_false_negatives or len(y_true.shape) == 1
     pred = model.predict(X_test)
     acc = accuracy_score(y_true, pred)
-    fbeta = fbeta_score(y_true, pred, beta=beta, average=average)
+    fbeta = fbeta_score(y_true, pred, beta=beta, average=average, zero_division=0.0)
     print('\n-- Testing Results --')
     print(f'Accuracy    on Verification Data:\t{acc:.6f}')
     print(f'Fbeta scroe on Verification Data:\t{fbeta:.6f}\n')
-    print(classification_report(y_true, pred))
+    print(classification_report(y_true, pred, zero_division=0.0))
     if display_false_negatives_:
         total_attacks = y_true.value_counts().iloc[1]
         confusion = confusion_matrix(y_true, pred)
