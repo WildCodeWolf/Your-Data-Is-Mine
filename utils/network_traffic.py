@@ -283,7 +283,7 @@ class Col:
 
         See Also
         --------
-        Col.above(threshold, target_identification=True, correlations=True, label_encoded=True)
+        Col.above(threshold, target_identification=True, correlations=True, label_encoded=True, one_hot_target='dos')
         """
         match target_identification, correlations, label_encoded:
             case False, False, False:
@@ -314,7 +314,7 @@ class Col:
         return ranking[:n]
     
     @staticmethod
-    def above(threshold, target_identification=True, correlations=True, label_encoded=True):
+    def above(threshold, target_identification=True, correlations=True, label_encoded=True, one_hot_target='dos'):
         """Return all features with an absolute correlation coefficient above
         the given `threshold`.
 
@@ -331,6 +331,10 @@ class Col:
         label_encoded : bool
             If `True`, retrieve data from a ranking based on label encoded data.
             If `False`, do so on a ranking based on one-hot encoded data.
+        one_hot_target : `{'dos', 'probe', 'r2l', 'u2r'}`, default: `'dos'`
+            If `label_encoded=False`, then this value is used to pick the correlation
+            matching the desired target column.  Has no effect for other types of
+            encodings.
         
         Returns
         -------
@@ -340,7 +344,7 @@ class Col:
 
         See Also
         --------
-        Col.top(n, target_identification=True, correlations=True, label_encoded=True)
+        Col.top(n, target_identification=True, correlations=True, label_encoded=True, one_hot_target='dos')
         """
         match target_identification, correlations, label_encoded:
             case False, False, False:
@@ -348,9 +352,17 @@ class Col:
             case False, False, True:
                 file = ''
             case False, True, False:
-                file = ''
+                match one_hot_target.lower():
+                    case 'dos':
+                        file = File.correlations_attack_classification_1hot_dos
+                    case 'probe':
+                        file = File.correlations_attack_classification_1hot_probe
+                    case 'r2l':
+                        file = File.correlations_attack_classification_1hot_r2l
+                    case 'u2r':
+                        file = File.correlations_attack_classification_1hot_u2r
             case False, True, True:
-                file = ''
+                file = File.correlations_attack_classification_label
             case True, False, False:
                 file = ''
             case True, False, True:
