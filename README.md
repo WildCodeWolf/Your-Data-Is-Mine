@@ -96,3 +96,19 @@ illustrations, we wrote two small custom packages.
 
 In `utils` we collect a few small files with specific settings and
 auxiliaries for the individual datasets as well as evaluation utilities.
+
+--------------------------------------------------------------------------------
+
+## Side Note: Collaboration
+
+For coordinating and structuring our work together in a constructive and
+non-overlapping way for the period of collaboration, we utilized a very simple
+Kanban-inspired approach.
+But instead of visualizing the tasks on a board or utilizing an external tool,
+we kept to a simple practice of file creation, claiming and renaming.
+
+This allowed us to stay focused without needing to set up an unnecessary overhead
+of apps or website configurations.
+
+If you're interested, you can find the [guidelines](tasks/README.md) (and the actual
+task files) in the `tasks` directory.
