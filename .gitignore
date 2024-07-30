@@ -163,3 +163,5 @@ cython_debug/
 
 # folders with restricted or non-public content
 data/
+# but do include the README.md in that folder
+!data/README.md
