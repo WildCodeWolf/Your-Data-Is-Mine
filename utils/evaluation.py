@@ -48,7 +48,7 @@ def evaluate_model(model, X_test, y_true, beta=10., average='weighted', display_
     `ModelEvaluationResult` :
         Named tuple with the fields `model`, `accuracy`, `fbeta` and `predictions`.
     """
-    display_false_negatives_ = display_false_negatives or len(y_true.shape) == 1
+    display_false_negatives_ = display_false_negatives if display_false_negatives is not None else len(y_true.shape) == 1
     pred = model.predict(X_test)
     acc = accuracy_score(y_true, pred)
     fbeta = fbeta_score(y_true, pred, beta=beta, average=average, zero_division=0.0)
@@ -145,11 +145,8 @@ def compare_models(new_results, old_results, compare_fbeta=True):
     Returns
     -------
 
-    model from `sklearn` or `tensorflow.keras` :
-        The model from the given results with the better score according to the given criterium.
-    
-    float :
-        The better of the respective models' scores.
+    `ModelEvaluationResult` | `HyperparameterTuningResult` :
+        The better of the two results.
     """
     is_improved = new_results.fbeta > old_results.fbeta if compare_fbeta else new_results.accuracy > old_results.accuracy
     is_hpt_comparison = isinstance(new_results, hpt_result) and isinstance(old_results, hpt_result)
@@ -169,4 +166,4 @@ def compare_models(new_results, old_results, compare_fbeta=True):
     best_score = best_results.fbeta if compare_fbeta else best_results.accuracy
     print(f'{best_model}\nIts score: {best_score:.6f}')
 
-    return best_model, best_score
+    return new_results if is_improved else old_results
