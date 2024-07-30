@@ -28,7 +28,7 @@ def confusion_matrix(y_true, y_pred, model=None):
     y_true_ = y_true if len(y_true.shape)==1 else np.argmax(y_true, axis=1)
     y_pred_ = y_pred if len(y_pred.shape)==1 else np.argmax(y_pred, axis=1)
     plt.figure(figsize=(5.5,4))
-    sns.heatmap(data=matrix(y_true, y_pred), annot=True, cmap=Colors.blues_c)
+    sns.heatmap(data=matrix(y_true_, y_pred_), annot=True, cmap=Colors.blues_c)
     title = f"Confusion Matrix for {model}" if model else "Confusion Matrix"
     plt.title(title)
     plt.xlabel('Predicted label')
