@@ -6,7 +6,7 @@ from sklearn.metrics import accuracy_score, fbeta_score, confusion_matrix, class
 model_result = namedtuple('ModelEvaluationResult', ['model', 'accuracy', 'fbeta', 'predictions'])
 """Construct a tuple containing the results of evaluating an ML model."""
 
-def evaluate_model(model, X_test, y_true, beta=10., average='weighted', display_false_negatives=None):
+def evaluate_model(model, X_test, y_true, beta=10., average='weighted', display_false_negatives=None, threshold=None):
     """Make predictions, compute and display metrics for a given `model` and return the result.
     
     Parameters
@@ -42,6 +42,13 @@ def evaluate_model(model, X_test, y_true, beta=10., average='weighted', display_
 
         If `None`, this line is produced if `y_true` is one-dimensional.
     
+    threshold : `float` | `None`, default: `None`
+
+        If given a floating point number (between `0.0` and `1.0`), predictions on the test input
+        will be computed using probability predictions and comparing those to the given value.
+        This only works for binary predictions.
+        The lower the value, the more likely the result to be interpreted as positive.
+    
     Returns
     -------
 
@@ -49,7 +56,7 @@ def evaluate_model(model, X_test, y_true, beta=10., average='weighted', display_
         Named tuple with the fields `model`, `accuracy`, `fbeta` and `predictions`.
     """
     display_false_negatives_ = display_false_negatives if display_false_negatives is not None else len(y_true.shape) == 1
-    pred = model.predict(X_test)
+    pred = model.predict(X_test) if threshold is None else (model.predict_proba(X_test)[:, 1] >= threshold).astype(int)
     acc = accuracy_score(y_true, pred)
     fbeta = fbeta_score(y_true, pred, beta=beta, average=average, zero_division=0.0)
     print('\n-- Testing Results --')
@@ -66,7 +73,7 @@ def evaluate_model(model, X_test, y_true, beta=10., average='weighted', display_
 hpt_result = namedtuple('HperparameterTuningResult', ['model', 'best_params', 'best_score', 'accuracy', 'fbeta', 'predictions'])
 """Construct a tuple containing the results of evaluating a hyperparameter tuning process."""
 
-def evaluate_hpt(model, X_test, y_true, beta=10., average='weighted', display_false_negatives=None):
+def evaluate_hpt(model, X_test, y_true, beta=10., average='weighted', display_false_negatives=None, threshold=None):
     """Make predictions, compute and display metrics for a given `model` and return the result.
 
     The behaviour is similar to `evaluate_model(model, X_test, y_true, beta, average, display_false_negatives)`,
@@ -105,6 +112,13 @@ def evaluate_hpt(model, X_test, y_true, beta=10., average='weighted', display_fa
         If `false`, no such line is produced.
 
         If `None`, this line is produced if `y_true` is one-dimensional.
+
+    threshold : `float` | `None`, default: `None`
+
+        If given a floating point number (between `0.0` and `1.0`), predictions on the test input
+        will be computed using probability predictions and comparing those to the given value.
+        This only works for binary predictions.
+        The lower the value, the more likely the result to be interpreted as positive.
     
     Returns
     -------
@@ -118,7 +132,7 @@ def evaluate_hpt(model, X_test, y_true, beta=10., average='weighted', display_fa
     print('-- Training Results --')
     print(f'Best Parameters:\n{param_string}', end='')
     print(f'Best Score:\n\t{best_score:.6f}')
-    model_result = evaluate_model(model, X_test, y_true, beta, average, display_false_negatives)
+    model_result = evaluate_model(model, X_test, y_true, beta, average, display_false_negatives, threshold)
     acc = model_result.accuracy
     fbeta = model_result.fbeta
     pred = model_result.predictions
